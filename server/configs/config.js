@@ -3,7 +3,7 @@
  */
 
 'use strict';
-var env = 'dev';
+var env = 'dev'; //运行环境：dev, sit, uat, prod根据配置读取对应目录的cache.js配置文件
 
 var path = require('path');
 var _ = require('lodash');
@@ -23,4 +23,3 @@ module.exports = _.extend(config, _.chain(configFiles)
   }).reduce(function (o, n) {
     return _.extend(o, n);
   }, config).value());
-
