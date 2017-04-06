@@ -1,0 +1,20 @@
+{
+  "appenders": [
+    {
+      "type": "console"
+    },
+    {
+      "type": "dateFile",
+      "filename": "logs/cache-error",
+      "pattern": "-yyyy-MM-dd.log",
+      "alwaysIncludePattern": true,
+      "category": "cache-error"
+    }
+  ],
+  "levels": {
+    "cache-error": "ERROR",
+    "cache": "TRACE",
+    "manager": "TRACE"
+  },
+  "relaceConsole": true
+}

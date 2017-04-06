@@ -1,0 +1,29 @@
+{
+  "name": "cache",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aliyun-sdk": "^1.9.15",
+    "async": "1.5.2",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "glob": "^7.1.1",
+    "lodash": "^4.17.2",
+    "log4js": "^1.0.1",
+    "lru-cache": "4.0.0",
+    "redis": "^2.6.3",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "benchmark": "^2.1.2",
+    "request": "^2.79.0"
+  }
+}

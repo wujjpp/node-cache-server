@@ -1,0 +1,22 @@
+{
+  "name": "cache-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aliyun-sdk": "^1.9.15",
+    "async": "1.5.2",
+    "bluebird": "^3.4.6",
+    "lodash": "^4.17.2",
+    "log4js": "^1.0.1",
+    "lru-cache": "4.0.0",
+    "progress": "^1.1.8",
+    "redis": "^2.6.3",
+    "uuid": "^3.0.1"
+  }
+}
