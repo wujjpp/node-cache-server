@@ -65,7 +65,8 @@ var configFiles = glob.sync(path.join(__dirname, env, '**', '*.js'));// sync ope
 module.exports = _.extend(config, _.chain(configFiles)
   .map(function (o) {
     return require(o);
-  }).reduce(function (o, n) {
+  })
+  .reduce(function (o, n) {
     return _.extend(o, n);
   }, config).value());
 ```

@@ -15,11 +15,12 @@ var config = {
 };
 
 _.extend(config, sharedConfig);
-var configFiles = glob.sync(path.join(__dirname, env, '**', '*.js'));// sync operation is require
+var configFiles = glob.sync(path.join(__dirname, env, '**', '*.js')); // sync operation is require
 
 module.exports = _.extend(config, _.chain(configFiles)
-  .map(function (o) {
+  .map(function(o) {
     return require(o);
-  }).reduce(function (o, n) {
+  })
+  .reduce(function(o, n) {
     return _.extend(o, n);
   }, config).value());
