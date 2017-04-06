@@ -26,8 +26,8 @@ $ npm run benchmark
 var cache = require('./client/cache');
 
 var client = cache.create({
-  uri: 'http://127.0.0.1:9999',
-  apiKey: '123456789'
+  uri: 'http://127.0.0.1:9999', // 缓存服务器地址
+  apiKey: '123456789' // 必须与服务端的apiKey保持一致
 });
 
 client
@@ -41,10 +41,10 @@ client
     console.log('result:', data);
   })
 ```
-上面的代码执行流程： client先会尝试从缓存服务器的`category-name`目录取key为`the-key`值。存在的情况下，直接返回对应对象，假如不存在，会执行第三个参数（回调函数），去慢速介质（比如：数据库）查询数据，框架会将resolve的结果自动填充到缓存服务器，以备下次使用。
+上面的代码执行流程： client先会尝试从缓存服务器的`category-name`目录取key为`the-key`值。存在的情况下，直接返回对应对象，假如不存在，会执行第三个参数（即回调函数），去慢速介质（比如：数据库）查询数据，框架会将resolve的结果自动填充到缓存服务器，以备下次使用。
 
 ## 服务端配置
-环境配置`/server/configs/config.js`
+___/server/configs/config.js___ 环境配置
 
 ```javascript
 'use strict';
@@ -70,11 +70,7 @@ module.exports = _.extend(config, _.chain(configFiles)
   }, config).value());
 ```
 
-缓存store配置`/server/configs/(dev|sit|uat|prod)/cache.js`, 根据实际情况进行调整，当然内存足够大的情况下，你可以直接使用memory，建议memory + redis, 这样缓存服务挂掉的情况下，可以使用redis作为backing store
-
-关于ttl，ttl用来控制缓存过期时间，单位为“秒”，越靠前的缓存存储ttl值应该是越小
-
-理论上越靠前的缓存存储器应该是读写速度应该越快，当然成本也是越高的。
+___/server/configs/(dev|sit|uat|prod)/cache.js___ 缓存store配置
 
 ```javascript
 
@@ -116,6 +112,21 @@ module.exports = {
       table_name: 'dev'
     }
   ]
+};
+
+```
+
+根据实际情况进行调整，当然内存足够大的情况下，你可以直接使用memory，建议memory + redis, 这样缓存服务挂掉的情况下，可以使用redis作为backing store
+
+关于ttl，ttl用来控制缓存过期时间，单位为“秒”，越靠前的缓存存储ttl值应该是越小
+
+理论上越靠前的缓存存储器应该是读写速度应该越快，当然成本也是越高的。
+
+___/server/configs/shared.js___ 配置缓存服务器端口及apiKey
+```javascript
+module.exports = {
+  port: 9999, //缓存服务器访问端口
+  apiKey: '123456789' //API key
 };
 
 ```
