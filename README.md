@@ -87,7 +87,7 @@ module.exports = {
     //二级缓存配置成redis
     {
       store: 'redis',
-      ttl: 60 * 5, //expire time in seconds, 5 mins
+      ttl: 60 * 10, //expire time in seconds, 10 mins
       ignoreCacheErrors: false, //ignore storage errors
 
       //下面是redis相关设置
@@ -101,7 +101,7 @@ module.exports = {
     {
       //阿里云OTS
       store: 'ots',
-      ttl: 60 * 10, //expire time in seconds, 1 day
+      ttl: 60 * 20, //expire time in seconds, 20 minutes
       ignoreCacheErrors: false, //ignore storage errors
 
       //下面是OTS相关设置
