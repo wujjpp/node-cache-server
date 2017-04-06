@@ -9,7 +9,7 @@ var ProgressBar = require('progress');
 var request = require('request');
 
 var total = 40000;
-var bar = new ProgressBar('progress [:bar] :rate/s :current/:total :percent :elapseds :etas', {
+var bar = new ProgressBar('progress [:bar] :rateops/s :current/:total :percent :elapseds :etas', {
   complete: '=',
   incomplete: ' ',
   width: 30,
@@ -31,7 +31,7 @@ var foo = function() {
     }
   });
 
-  if (cnt <= total) {
+  if (cnt < total) {
     setTimeout(foo, 1);
   }
 };

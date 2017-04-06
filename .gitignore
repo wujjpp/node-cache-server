@@ -2,5 +2,5 @@ node_modules
 .git
 .tern-project
 npm-debug.log
-logs/**/*
+logs
 .cache
