@@ -119,3 +119,5 @@ module.exports = {
 };
 
 ```
+
+Made with ♥ by Wu Jian Ping
